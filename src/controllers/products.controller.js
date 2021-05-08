@@ -1,5 +1,9 @@
-export const createProduct = (req, res) => {
+//Importar modelo de producto
+import { restart } from 'nodemon'
+import Product from '../models/Products'
 
+export const createProduct = (req, res) => {
+    res.json('Creating Product')
 }
 
 export const getProducts = (req, res) => {
