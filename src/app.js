@@ -2,6 +2,8 @@ import express from 'express'
 import morgan from 'morgan'
 import pkg from '../package.json'
 
+import productsRoutes from './routes/products.routes'
+
 const app = express()
 
 //Guardar info del package.json
@@ -19,5 +21,8 @@ app.get('/',(req, res) =>{
         version: app.get('pkg').version,
     })
 })
+
+//obteniendo rutas de products.routes
+app.use('/products', productsRoutes)
 
 export default app
