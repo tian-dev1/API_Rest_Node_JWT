@@ -5,7 +5,8 @@ import pkg from '../package.json'
 import productsRoutes from './routes/products.routes'
 
 const app = express()
-
+//Para que entienda los json que se le envian al servidor
+app.use(express.json())
 //Guardar info del package.json
 app.set('pkg', pkg)
 
