@@ -3,6 +3,7 @@ import { restart } from 'nodemon'
 import Product from '../models/Products'
 
 export const createProduct = (req, res) => {
+    console.log(req.body)
     res.json('Creating Product')
 }
 
