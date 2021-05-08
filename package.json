@@ -1,7 +1,7 @@
 {
-  "name": "api",
+  "name": "api-rest-node-mongo-jwt",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project made with node, mongo, jwt and roles",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir build",
@@ -9,7 +9,7 @@
     "start": "node build/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "tiancamilo01",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
