@@ -1,8 +1,11 @@
 import express from 'express'
 import morgan from 'morgan'
 import pkg from '../package.json'
-
+//importar el archivo de rutas de productos
 import productsRoutes from './routes/products.routes'
+//importar el archivo de rutas de usuario
+import authRoutes from './routes/auth.routes'
+
 
 const app = express()
 //Para que entienda los json que se le envian al servidor
@@ -24,6 +27,8 @@ app.get('/',(req, res) =>{
 })
 
 //obteniendo rutas de products.routes
-app.use('/products', productsRoutes)
+app.use('/api/products', productsRoutes)
+//obteniendo rutas de user.routes
+app.use('/api/auth', authRoutes)
 
 export default app
