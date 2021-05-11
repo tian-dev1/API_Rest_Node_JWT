@@ -1,6 +1,8 @@
 import express from 'express'
 import morgan from 'morgan'
 import pkg from '../package.json'
+//Crear roles
+import {createRoles} from './libs/initialSetup'
 //importar el archivo de rutas de productos
 import productsRoutes from './routes/products.routes'
 //importar el archivo de rutas de usuario
@@ -8,6 +10,8 @@ import authRoutes from './routes/auth.routes'
 
 
 const app = express()
+//Crear roles
+createRoles()
 //Para que entienda los json que se le envian al servidor
 app.use(express.json())
 //Guardar info del package.json
