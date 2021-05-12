@@ -3,11 +3,13 @@ const router = Router()
 
 //Importar funciones del products.controller
 import * as productsCtrl from '../controllers/products.controller'
+//Importar Middlewares
+import { authJwt } from '../middlewares'
 
-router.post('/', productsCtrl.createProduct)
-router.get('/', productsCtrl.getProducts)
-router.get('/:productId', productsCtrl.getProductById)
-router.put('/:productId', productsCtrl.updateProductById)
-router.delete('/:productId', productsCtrl.deleteProductById)
+router.post('/', [authJwt.verifyToken, authJwt.isModerator || authJwt.isAdmin], productsCtrl.createProduct)
+router.get('/', [authJwt.verifyToken, authJwt.isModerator || authJwt.isAdmin || authJwt.isUser], productsCtrl.getProducts)
+router.get('/:productId', [authJwt.verifyToken, authJwt.isModerator || authJwt.isAdmin || authJwt.isUser], productsCtrl.getProductById)
+router.put('/:productId', [authJwt.verifyToken, authJwt.isModerator || authJwt.isAdmin], productsCtrl.updateProductById)
+router.delete('/:productId', [authJwt.verifyToken, authJwt.isModerator || authJwt.isAdmin], productsCtrl.deleteProductById)
 
 export default router
